@@ -8,7 +8,7 @@ $ go get github.com/imantung/simple-csv-go
 ```
 
 ### Open Csv ###
-```
+```go
 reader := csv2.Reader{}
 err := reader.Open("path.of.csv", ";", true)
 if err != nil {
@@ -18,7 +18,7 @@ defer reader.Close()
 ```
 
 ### Validate ###
-```
+```go
 expectedColumn := []string{"column1", "column2"}
 if ok, err := reader.Validate(expectedColumn); !ok {
   log.Fatalf("Invalid csv: %s", err.Error())
@@ -27,7 +27,7 @@ if ok, err := reader.Validate(expectedColumn); !ok {
 
 ### Read All ###
 Feel like read file in usual way
-```
+```go
 for reader.Next() {
   row, err := reader.Read()
   if err != nil {
@@ -44,7 +44,7 @@ log.Println("Done!")
 ```
 
 The reader will save index of column so you can get the value by column name.
-```
+```go
 for reader.Next() {
   row, err := reader.ReadAsRow()
   if err != nil {
