@@ -25,7 +25,7 @@ func main() {
 	defer reader.Close()
 
 	// validate
-	expectedColumn := []string{"column1", "column2"}
+	expectedColumns := []string{"column1", "column2"}
 	if ok, err := reader.Validate(expectedColumn); !ok {
 		log.Fatalf("Invalid csv: %s", err.Error())
 	}
@@ -38,10 +38,10 @@ func main() {
 		}
 
 		rowNumber := row.RowNumber
-		name, _ := row.GetByName("column1")
-		age, _ := row.GetByName("column2")
+		column1, _ := row.GetByName("column1")
+		column2, _ := row.GetByName("column2")
 
-		log.Printf("Line:%d 'name':%s 'age':%s", rowNumber, name, age)
+		log.Printf("Line:%d 'name':%s 'age':%s", rowNumber, column1, column2)
 	}
 
 	log.Println("Done!")
