@@ -26,7 +26,7 @@ func main() {
 
 	// validate
 	expectedColumns := []string{"column1", "column2"}
-	if ok, err := reader.Validate(expectedColumn); !ok {
+	if ok, err := reader.Validate(expectedColumns); !ok {
 		log.Fatalf("Invalid csv: %s", err.Error())
 	}
 
